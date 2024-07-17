@@ -40,12 +40,16 @@ class width_tree {
   };
 
   phylo_tree_t<node_t> tree;
-  size_t root_no;
+  int root_no;
 
  public:
   explicit width_tree(const std::vector< int >& tree_edge)
     : tree(make_phylo_tree<node_t, true>(tree_edge)) {
-    root_no = 2 + static_cast<int>(0.25 * tree_edge.size());
+    root_no = tree_edge[0];
+    for (size_t i = 2; i < tree_edge.size(); i+=2) {
+      if (tree_edge[i] < root_no) root_no = tree_edge[i];
+    }
+
     tree[root_no].set_depth(-1);
   }
 
@@ -71,7 +75,7 @@ class width_tree {
 
   double calc_b2() {
     double s = 0.0;
-    for (size_t i = 1; i < root_no; ++i) {
+    for (int i = 1; i < root_no; ++i) {
       // we are only interested in tip depths
       s += tree[i].depth / std::pow(2, tree[i].depth);
     }
@@ -81,19 +85,36 @@ class width_tree {
   double var_leaf_depth() {
     double average_depth = 0.0;
     int n = root_no - 1;
-    for (size_t i = 1; i < root_no; ++i) {
+    for (int i = 1; i < root_no; ++i) {
       average_depth += tree[i].depth;
     }
 
     average_depth *= 1.0 / (n);
 
     double var_depth = 0.0;
-    for (size_t i = 1; i < root_no; ++i) {
+    for (int i = 1; i < root_no; ++i) {
       var_depth += (tree[i].depth - average_depth) *
         (tree[i].depth - average_depth);
     }
     var_depth *= 1.0 / (n - 1);
     return var_depth;
+  }
+
+  double calc_tot_int_path() {
+    double sum_depth = 0.0;
+    for (size_t i = static_cast<size_t>(root_no); i < tree.size(); ++i) {
+      sum_depth += tree[i].depth;
+    }
+    return sum_depth;
+  }
+
+  double calc_avg_vert_depth() {
+    double sum_depth = 0.0;
+    for (size_t i = 1; i < tree.size(); ++i) {
+      sum_depth += tree[i].depth;
+    }
+    auto answ =  sum_depth * 1.0 / (tree.size() - 1);
+    return answ;
   }
 };
 

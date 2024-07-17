@@ -18,10 +18,7 @@ treestats::colless(phy, normalization = "yule")
 ## ----all_stats----------------------------------------------------------------
 all_stats <- calc_all_stats(phy)
 
-## ----all_stats2---------------------------------------------------------------
-unlist(all_stats)
-
 ## ----all_stats3---------------------------------------------------------------
-balance_stats <- calc_balance_stats(phy)
+balance_stats <- calc_topology_stats(phy)
 unlist(balance_stats)
 

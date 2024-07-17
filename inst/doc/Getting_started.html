@@ -12,9 +12,9 @@
 
 <meta name="author" content="Thijs Janzen" />
 
-<meta name="date" content="2024-01-30" />
+<meta name="date" content="2024-07-17" />
 
-<title>demonstration</title>
+<title>Getting started</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -338,9 +338,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">demonstration</h1>
+<h1 class="title toc-ignore">Getting started</h1>
 <h4 class="author">Thijs Janzen</h4>
-<h4 class="date">2024-01-30</h4>
+<h4 class="date">2024-07-17</h4>
 
 
 
@@ -350,24 +350,30 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 summary statistics on phylogenetic trees. To obtain a list of all
 supported summary statistics use:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">list_statistics</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;gamma&quot;                  &quot;sackin&quot;                 &quot;colless&quot;               
-##  [4] &quot;beta&quot;                   &quot;blum&quot;                   &quot;crown_age&quot;             
-##  [7] &quot;tree_height&quot;            &quot;pigot_rho&quot;              &quot;number_of_lineages&quot;    
-## [10] &quot;nltt_base&quot;              &quot;phylogenetic_div&quot;       &quot;avg_ladder&quot;            
-## [13] &quot;max_ladder&quot;             &quot;cherries&quot;               &quot;il_number&quot;             
-## [16] &quot;pitchforks&quot;             &quot;stairs&quot;                 &quot;laplace_spectrum_a&quot;    
-## [19] &quot;laplace_spectrum_p&quot;     &quot;laplace_spectrum_e&quot;     &quot;laplace_spectrum_g&quot;    
-## [22] &quot;imbalance_steps&quot;        &quot;j_one&quot;                  &quot;b1&quot;                    
-## [25] &quot;b2&quot;                     &quot;area_per_pair&quot;          &quot;average_leaf_depth&quot;    
-## [28] &quot;i_stat&quot;                 &quot;ew_colless&quot;             &quot;max_del_width&quot;         
-## [31] &quot;max_depth&quot;              &quot;max_width&quot;              &quot;rogers&quot;                
-## [34] &quot;stairs2&quot;                &quot;tot_coph&quot;               &quot;var_depth&quot;             
-## [37] &quot;symmetry_nodes&quot;         &quot;mpd&quot;                    &quot;psv&quot;                   
-## [40] &quot;vpd&quot;                    &quot;mntd&quot;                   &quot;j_stat&quot;                
-## [43] &quot;rquartet&quot;               &quot;wiener&quot;                 &quot;max_betweenness&quot;       
-## [46] &quot;max_closeness&quot;          &quot;diameter&quot;               &quot;eigenvector&quot;           
-## [49] &quot;mean_branch_length&quot;     &quot;var_branch_length&quot;      &quot;mean_branch_length_int&quot;
-## [52] &quot;mean_branch_length_ext&quot; &quot;var_branch_length_int&quot;  &quot;var_branch_length_ext&quot;</code></pre>
+<pre><code>##  [1] &quot;area_per_pair&quot;          &quot;average_leaf_depth&quot;     &quot;avg_ladder&quot;            
+##  [4] &quot;avg_vert_depth&quot;         &quot;b1&quot;                     &quot;b2&quot;                    
+##  [7] &quot;beta&quot;                   &quot;blum&quot;                   &quot;cherries&quot;              
+## [10] &quot;colless&quot;                &quot;colless_corr&quot;           &quot;colless_quad&quot;          
+## [13] &quot;crown_age&quot;              &quot;diameter&quot;               &quot;double_cherries&quot;       
+## [16] &quot;eigen_centrality&quot;       &quot;eigen_centralityW&quot;      &quot;ew_colless&quot;            
+## [19] &quot;four_prong&quot;             &quot;gamma&quot;                  &quot;i_stat&quot;                
+## [22] &quot;il_number&quot;              &quot;imbalance_steps&quot;        &quot;j_one&quot;                 
+## [25] &quot;j_stat&quot;                 &quot;laplace_spectrum_a&quot;     &quot;laplace_spectrum_e&quot;    
+## [28] &quot;laplace_spectrum_g&quot;     &quot;laplace_spectrum_p&quot;     &quot;max_adj&quot;               
+## [31] &quot;max_betweenness&quot;        &quot;max_closeness&quot;          &quot;max_closenessW&quot;        
+## [34] &quot;max_del_width&quot;          &quot;max_depth&quot;              &quot;max_ladder&quot;            
+## [37] &quot;max_laplace&quot;            &quot;max_width&quot;              &quot;mean_branch_length&quot;    
+## [40] &quot;mean_branch_length_ext&quot; &quot;mean_branch_length_int&quot; &quot;min_adj&quot;               
+## [43] &quot;min_laplace&quot;            &quot;mntd&quot;                   &quot;mpd&quot;                   
+## [46] &quot;mw_over_md&quot;             &quot;nltt_base&quot;              &quot;number_of_lineages&quot;    
+## [49] &quot;phylogenetic_div&quot;       &quot;pigot_rho&quot;              &quot;pitchforks&quot;            
+## [52] &quot;psv&quot;                    &quot;rogers&quot;                 &quot;root_imbalance&quot;        
+## [55] &quot;rquartet&quot;               &quot;sackin&quot;                 &quot;stairs&quot;                
+## [58] &quot;stairs2&quot;                &quot;symmetry_nodes&quot;         &quot;tot_coph&quot;              
+## [61] &quot;tot_internal_path&quot;      &quot;tot_path&quot;               &quot;tree_height&quot;           
+## [64] &quot;treeness&quot;               &quot;var_branch_length&quot;      &quot;var_branch_length_ext&quot; 
+## [67] &quot;var_branch_length_int&quot;  &quot;var_depth&quot;              &quot;vpd&quot;                   
+## [70] &quot;wiener&quot;</code></pre>
 <p>If your favourite summary statistic is missing, please let the
 maintainer know, treestats is a dynamic package always under
 development, and the maintainers are always looking for new
@@ -378,77 +384,42 @@ the Colless statistic (and we generate a dummy tree):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>phy <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">rphylo</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">birth =</span> <span class="dv">1</span>, <span class="at">death =</span> <span class="fl">0.1</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>treestats<span class="sc">::</span><span class="fu">colless</span>(phy)</span></code></pre></div>
-<pre><code>## [1] 238</code></pre>
+<pre><code>## [1] 312</code></pre>
 <p>Looking at the documentation of the colless statistic
 (<code>?colless</code>), we find that the function also includes options
 to normalize for size: either ‘pda’ or ‘yule’:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>treestats<span class="sc">::</span><span class="fu">colless</span>(phy, <span class="at">normalization =</span> <span class="st">&quot;yule&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] -1.109239</code></pre>
+<pre><code>## [1] -0.3692387</code></pre>
 <div id="multiple-statistics" class="section level2">
 <h2>Multiple statistics</h2>
 <p>The treestats package supports calculating many statistics in one go.
 For this, several functions have been set up aptly. Firstly, the
 function <code>calc_all_stats</code> will calculate all statistics:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>all_stats <span class="ot">&lt;-</span> <span class="fu">calc_all_stats</span>(phy)</span></code></pre></div>
-<p>This generates a named list, which can be very useful to find your
-focal statistics, but often a conversion into a vector may be more
-interesting (we use unlist and omit <code>as.vector</code> to retain the
-names):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">unlist</span>(all_stats)</span></code></pre></div>
-<pre><code>##                  gamma                 sackin                colless 
-##          -4.152725e-01           7.540000e+02           2.380000e+02 
-##                   beta                   blum              crown_age 
-##           1.081738e+00           1.098696e+02           5.332899e+00 
-##            tree_height              pigot_rho     number_of_lineages 
-##           5.332899e+00           8.397294e-02           1.000000e+02 
-##              nltt_base       phylogenetic_div             avg_ladder 
-##           7.790139e-01           1.178496e+02           2.166667e+00 
-##             max_ladder               cherries              il_number 
-##           3.000000e+00           3.500000e+01           3.000000e+01 
-##             pitchforks                 stairs     laplace_spectrum_a 
-##           1.600000e+01           6.060606e-01          -8.071243e-01 
-##     laplace_spectrum_p     laplace_spectrum_e     laplace_spectrum_g 
-##           4.218895e+00           7.573827e+00           1.000000e+00 
-##        imbalance_steps                  j_one                     b1 
-##           8.700000e+01           8.811480e-01           5.435123e+01 
-##                     b2          area_per_pair     average_leaf_depth 
-##           5.855957e+00           1.276687e+01           7.540000e+00 
-##                 i_stat             ew_colless          max_del_width 
-##           4.599563e-01           4.373691e-01           1.000000e+01 
-##              max_depth              max_width                 rogers 
-##           1.200000e+01           3.800000e+01           6.000000e+01 
-##                stairs2               tot_coph              var_depth 
-##           6.651382e-01           5.725000e+03           2.917576e+00 
-##         symmetry_nodes                    mpd                    psv 
-##           6.000000e+01           8.422200e+00           4.211100e+00 
-##                    vpd                   mntd                 j_stat 
-##           7.645229e+00           1.302264e+00           8.422200e-02 
-##               rquartet                 wiener        max_betweenness 
-##           4.917915e+06           1.442562e+05           1.154700e+04 
-##          max_closeness               diameter            eigenvector 
-##           1.086454e-03           2.200000e+01           6.761475e-01 
-##     mean_branch_length      var_branch_length mean_branch_length_int 
-##           5.952001e-01           3.689483e-01           5.381270e-01 
-## mean_branch_length_ext  var_branch_length_int  var_branch_length_ext 
-##           6.511318e-01           3.545903e-01           3.803586e-01</code></pre>
-<p>Similarly, we can also blanket apply all balance associated summary
+<p>Similarly, we can also blanket apply all topology associated summary
 statistics:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>balance_stats <span class="ot">&lt;-</span> <span class="fu">calc_balance_stats</span>(phy)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">unlist</span>(balance_stats)</span></code></pre></div>
-<pre><code>##             sackin            colless               beta               blum 
-##       7.540000e+02       2.380000e+02       1.081738e+00       1.098696e+02 
-##         avg_ladder         max_ladder           cherries          il_number 
-##       2.166667e+00       3.000000e+00       3.500000e+01       3.000000e+01 
-##         pitchforks             stairs                 b1                 b2 
-##       1.600000e+01       6.060606e-01       5.435123e+01       5.855957e+00 
-##      area_per_pair average_leaf_depth             i_stat         ew_colless 
-##       1.276687e+01       7.540000e+00       4.599563e-01       4.373691e-01 
-##      max_del_width          max_depth          max_width             rogers 
-##       1.000000e+01       1.200000e+01       3.800000e+01       6.000000e+01 
-##            stairs2           tot_coph          var_depth     symmetry_nodes 
-##       6.651382e-01       5.725000e+03       2.917576e+00       6.000000e+01 
-##           rquartet    imbalance_steps              j_one           diameter 
-##       4.917915e+06       8.700000e+01       8.811480e-01       2.200000e+01</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>balance_stats <span class="ot">&lt;-</span> <span class="fu">calc_topology_stats</span>(phy)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">unlist</span>(balance_stats)</span></code></pre></div>
+<pre><code>##      area_per_pair average_leaf_depth         avg_ladder     avg_vert_depth 
+##       1.339475e+01       8.180000e+00       2.000000e+00       7.226131e+00 
+##                 b1                 b2               beta               blum 
+##       5.520837e+01       5.298096e+00       5.710937e-02       1.126063e+02 
+##           cherries            colless       colless_corr       colless_quad 
+##       3.600000e+01       3.120000e+02       6.431664e-02       5.596000e+03 
+##           diameter    double_cherries   eigen_centrality         ew_colless 
+##       2.300000e+01       5.000000e+00       2.796905e-01       4.195618e-01 
+##         four_prong             i_stat          il_number    imbalance_steps 
+##       3.000000e+00       4.753022e-01       2.800000e+01       8.600000e+01 
+##              j_one    max_betweenness      max_closeness      max_del_width 
+##       8.122074e-01       1.207100e+04                 NA       1.200000e+01 
+##          max_depth         max_ladder          max_width         mw_over_md 
+##       1.300000e+01       2.000000e+00       3.000000e+01       2.307692e+00 
+##         pitchforks             rogers     root_imbalance           rquartet 
+##       1.400000e+01       5.500000e+01       5.500000e-01       4.828989e+06 
+##             sackin             stairs            stairs2     symmetry_nodes 
+##       8.180000e+02       5.555556e-01       6.718059e-01       5.600000e+01 
+##           tot_coph  tot_internal_path    tot_path_length          var_depth 
+##       7.339000e+03       6.200000e+02       1.438000e+03       4.654141e+00</code></pre>
 </div>
 </div>
 

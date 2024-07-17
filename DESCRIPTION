@@ -1,7 +1,7 @@
 Package: treestats
 Type: Package
 Title: Phylogenetic Tree Statistics
-Version: 1.0.5
+Version: 1.70.4
 Authors@R: c(person(given = "Thijs",
         family = "Janzen",
         email = "thijsjanzen@gmail.com",
@@ -20,18 +20,19 @@ Description: Collection of phylogenetic tree statistics,
              found in Janzen (2023) <doi:10.1101/2024.01.24.576848>.
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Depends: Rcpp
 LinkingTo: Rcpp, nloptr
-Imports: ape, nloptr, RSpectra, Matrix
-Suggests: phyloTop, testthat, DDD, geiger, nodeSub, nLTT, castor,
-        adephylo, ggplot2, tibble, picante, treebalance, RPANDA, lintr,
-        rmarkdown, knitr
+Imports: ape, nloptr
+Suggests: phyloTop, testthat, DDD, geiger, nLTT, castor, adephylo,
+        ggplot2, tibble, picante, treebalance, RPANDA, lintr,
+        rmarkdown, knitr, igraph, RSpectra, Matrix, abcrf, pheatmap
 BugReports: https://github.com/thijsjanzen/treestats/issues
-URL: https://github.com/thijsjanzen/treestats
+URL: https://github.com/thijsjanzen/treestats,
+        https://thijsjanzen.github.io/treestats/
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2024-01-30 13:59:36 UTC; thijsjanzen
+Packaged: 2024-07-17 09:09:38 UTC; thijsjanzen
 Author: Thijs Janzen [cre, aut] (<https://orcid.org/0000-0002-4162-1140>)
 Repository: CRAN
-Date/Publication: 2024-01-30 15:50:02 UTC
+Date/Publication: 2024-07-17 12:10:02 UTC
