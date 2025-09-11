@@ -18,32 +18,47 @@ check_binary <- function(phy) {
   ref <- c(rep.int(1L, n), rep.int(3L, m))
   ## can use identical() as long as tabulate() returns integers
   if (ape::is.rooted(phy)) ref[n + 1L] <- 2L
-  identical(dgr, ref)
+  a1 <- identical(dgr, ref)
+  # check that the root node is indeed binary
+  a2 <- dgr[n + 1L] == 2
+  return(a1 && a2)
 }
 
 #' @keywords internal
 check_tree <- function(phy,
                        require_binary = FALSE,
-                       require_ultrametric = FALSE) {
+                       require_ultrametric = FALSE,
+                       require_rooted = FALSE) {
 
   # early exit
-  if (!require_binary && !require_ultrametric) return()
+  if (!require_binary &&
+      !require_ultrametric &&
+      !require_rooted) return()
 
 
   if (inherits(phy, "phylo")) {
     if (require_binary) {
-      valid <- ape::is.binary(phy)
+      valid <- check_binary(phy)
       if (!valid) {
         stop("Tree is non-binary, statistic not applicable")
       }
     }
     if (require_ultrametric) {
-      valid <- ape::is.ultrametric(phy, tol = 0.01, option = 1)
+      valid <- ape::is.ultrametric(phy, tol = 1e-7, option = 1)
 
       if (!valid) {
         stop("Tree is not ultrametric, statistic not applicable")
       }
     }
+
+    if (require_rooted) {
+      valid <- ape::is.rooted(phy)
+
+      if (!valid) {
+        stop("Tree is not rooted, statistic not applicable")
+      }
+    }
+
   }
   if (inherits(phy, "matrix")) {
     if (require_ultrametric) {

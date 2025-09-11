@@ -1,4 +1,4 @@
-// Copyright 2022 - 2024 Thijs Janzen
+// Copyright 2022 - 2025 Thijs Janzen
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -89,14 +89,14 @@ class width_tree {
       average_depth += tree[i].depth;
     }
 
-    average_depth *= 1.0 / (n);
+    average_depth *= 1.0 / n;
 
     double var_depth = 0.0;
     for (int i = 1; i < root_no; ++i) {
       var_depth += (tree[i].depth - average_depth) *
         (tree[i].depth - average_depth);
     }
-    var_depth *= 1.0 / (n - 1);
+    var_depth *= 1.0 / n;
     return var_depth;
   }
 

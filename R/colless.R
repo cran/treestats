@@ -20,7 +20,10 @@
 colless <- function(phy,
                     normalization = "none") {
   normalization <- check_normalization_key(normalization)
-  check_tree(phy, TRUE, FALSE)
+  check_tree(phy,
+             require_binary = TRUE,
+             require_ultrametric = FALSE,
+             require_rooted = TRUE)
 
   if (inherits(phy, "matrix")) {
     return(calc_colless_ltable_cpp(phy, normalization))
@@ -33,7 +36,7 @@ colless <- function(phy,
 
 #' Equal weights Colless index of (im)balance.
 #' @description The equal weights Colless index is calculated as the sum of
-#' \eqn{abs(L - R) / (L + R - 2)} over all nodes where L + R > 2,
+#' \eqn{abs(L - R) / (L + R - 2)} over all nodes where \eqn{L + R > 2},
 #' where L (or R) is the number of extant tips associated with the L (or R)
 #' daughter branch at that node.  Maximal imbalance is associated with a value
 #' of 1.0. The ew_colless index is not sensitive to tree size.
@@ -51,7 +54,8 @@ colless <- function(phy,
 ew_colless <- function(phy) {
   check_tree(phy,
              require_binary = TRUE,
-             require_ultrametric = FALSE)
+             require_ultrametric = FALSE,
+             require_rooted = TRUE)
   if (inherits(phy, "matrix")) {
     return(calc_eWcolless_ltable_cpp(phy))
   }
@@ -66,7 +70,7 @@ ew_colless <- function(phy) {
 #' Corrected Colless index of (im)balance.
 #' @description The Corrected Colless index is calculated as the sum of
 #' \eqn{abs(L - R)} over all nodes, corrected for tree size by dividing over
-#' (n-1) * (n-2), where n is the number of nodes.
+#' \eqn{(n-1) * (n-2)}, where n is the number of nodes.
 #' @param phy phylo object or ltable
 #' @param normalization A character string equals to "none" (default) for no
 #' normalization or "yule", in which case the obtained index is divided by
@@ -84,7 +88,10 @@ ew_colless <- function(phy) {
 colless_corr <- function(phy,
                          normalization = "none") {
   normalization <- check_normalization_key(normalization)
-  check_tree(phy, TRUE, FALSE)
+  check_tree(phy,
+             require_binary = TRUE,
+             require_ultrametric = FALSE,
+             require_rooted = TRUE)
 
   if (inherits(phy, "matrix")) {
     return(calc_colless_corr_ltable_cpp(phy, normalization))
@@ -115,7 +122,8 @@ colless_quad <- function(phy,
   normalization <- check_normalization_key(normalization)
   check_tree(phy,
              require_binary = TRUE,
-             require_ultrametric = FALSE)
+             require_ultrametric = FALSE,
+             require_rooted = TRUE)
 
   if (inherits(phy, "matrix")) {
     return(calc_colless_quad_ltable_cpp(phy, normalization))

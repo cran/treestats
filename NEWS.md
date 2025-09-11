@@ -1,3 +1,22 @@
+# Version 1.70.7
+- Fixed numerical issue in calculating mean pair distance for very large trees
+- Now use armadillo to calculate Eigen values
+- added the function 'sshape', which was previously called the blum statistic (
+the blum function remains available as well). Thanks Sophie Kersting for 
+pointing this out!
+- polished the manual
+
+# Version 1.70.6
+- Added support for unrooted trees
+- Added check if tree is unrooted, and aborting if statistic does not support
+this
+- Updated reference table in the README file, showing which statistics are
+available for unrooted trees, and which statistics (appear) to be affected by
+root position
+- using treebalance functions when treestats functions do not suffice (e.g.
+for rquartet for polytomous trees)
+- updated Wiener test, to include distance matrix based calculation
+
 # Version 1.70.5
 
 Updated references.

@@ -2,10 +2,10 @@
 #' @description Calculates the eigenvalues of the Laplacian Matrix, where the
 #' Laplacian matrix is the matrix representation of a graph, in this case a
 #' phylogeny.
-#' When the R package RSpectra is available, a faster calculation can be used,
-#' which does not calculate all eigenvalues, but only the maximum and minimum.
-#' As such, when using this option, the vector of all eigenvalues is not
-#' returned
+#' When the R package \pkg{RSpectra} is available, a faster
+#' calculation can be used, which does not calculate all eigenvalues, but only
+#' the maximum and minimum. As such, when using this option, the vector of all
+#' eigenvalues is not returned.
 #' @param phy phylo object or ltable
 #' @param use_rspectra boolean to indicate whether the helping package RSpectra
 #' should be used, in which case only the minimum and maximum values are
@@ -18,7 +18,8 @@ minmax_laplace <- function(phy,
                            use_rspectra = FALSE) {
   check_tree(phy,
              require_binary = TRUE,
-             require_ultrametric = FALSE)
+             require_ultrametric = FALSE,
+             require_rooted = FALSE)
 
   if (inherits(phy, "matrix")) {
     if (sum(phy[, 4] > -1))

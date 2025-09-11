@@ -25,12 +25,13 @@ skew_ness <- function(x) {
 #' all nodes), and the degree matrix (e.g. the diagonal matrix where each
 #' diagonal element represents the sum of branch lengths to all other nodes).
 #' Each row of the modified graph Laplacian sums to zero. For a tree with n
-#' tips, there are N = 2n-1 nodes, and hence the modified graph Laplacian is
-#' represented by a N x N matrix. Where RPANDA relies on the package igraph to
-#' calculate the modified graph Laplacian, the treestats package uses C++ to
-#' directly calculate the different entries in the matrix. This makes the
+#' tips, there are \eqn{N = 2n-1} nodes, and hence the modified graph Laplacian
+#' is represented by a \eqn{N x N} matrix. Where RPANDA relies on the package
+#' igraph to calculate the modified graph Laplacian, the treestats package uses
+#' C++ to directly calculate the different entries in the matrix. This makes the
 #' treestats implementation slightly faster, although the bulk of computation
-#' occurs in estimating the eigen values, using the function eigen from base.
+#' occurs in estimating the eigen values, where RcppArmadillo generates a bit
+#' of speed up.
 #' @param phy phy
 #' @return list with five components: 1) eigenvalues the vector of eigen
 #' values, 2) principal_eigenvalue the largest eigenvalueof the spectral
@@ -77,19 +78,25 @@ laplacian_spectrum <- function(phy) {
       bw[1]
       else bw(x)) * adjust
     xx <- seq(from, to, len = n)
-    mat <- outer(xx, x, kernel, sd = sd, ...)
-    structure(list(x = xx, y = rowMeans(mat), bw = sd, call = match.call(),
-                   n = length(x), data.name = deparse(substitute(x)),
-                   has.na = has_na), class = "density")
+
+    mat <-  outer_cpp(xx, x, sd)
+
+
+    structure(list(x = xx,
+                   y = rowMeans(mat),
+                   bw = sd,
+                   call = match.call(),
+                   n = length(x),
+                   data.name = deparse(substitute(x)),
+                   has.na = has_na),
+              class = "density")
   }
 
   phy <- ape::reorder.phylo(phy)
 
-  lapl_mat <- -prep_lapl_spec(phy)
+  x <- get_eigen_values_arma_cpp(phy)
+  x <- sort(x, decreasing = TRUE)
 
-  e <- eigen(lapl_mat, symmetric = TRUE, only.values = TRUE)
-
-  x <- subset(e$values, e$values >= 1)
   d <- dens_rpanda(log(x))
   dsc <- d$y / (integr(d$x, d$y))
   principal_eigenvalue <- max(x)

@@ -1,5 +1,5 @@
 ## ----setup, include=FALSE-----------------------------------------------------
-required <- c("ape", "pheatmap")
+required <- c("ape", "pheatmap", "phytools")
 if (!all(unlist(lapply(required,
                        function(pkg) requireNamespace(pkg, quietly = TRUE)))))
   knitr::opts_chunk$set(eval = FALSE)
@@ -16,6 +16,11 @@ focal_trees <- ape::read.tree(file = "https://raw.githubusercontent.com/thijsjan
 ## ----calc_sum_stats-----------------------------------------------------------
 all_stats <- c()
 for (i in seq_along(focal_trees)) {
+  if (!ape::is.ultrametric(focal_trees[[i]])) {
+    testthat::expect_output(
+    focal_trees[[i]] <- phytools::force.ultrametric(focal_trees[[i]])
+    )
+  }
   focal_stats <- treestats::calc_all_stats(focal_trees[[i]])
   all_stats <- rbind(all_stats, focal_stats)
 }

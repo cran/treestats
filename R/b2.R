@@ -1,7 +1,7 @@
 #' B2 metric
 #' @description Balance metric that uses the Shannon-Wiener statistic of
 #' information content. The b2 measure is given by the sum over the depths of
-#' all tips, divided by 2^depth: sum Ni / 2^Ni.
+#' all tips, divided by \eqn{2^{d}}, e.g. \eqn{\sum d_i / 2^{d_i}}
 #' Although also defined on non-binary trees, the treestats package only
 #' provides code for binary trees.
 #' @param phy phylo object or ltable
@@ -21,7 +21,8 @@ b2 <- function(phy, normalization = "none") {
 
   check_tree(phy,
              require_binary = TRUE,
-             require_ultrametric = FALSE)
+             require_ultrametric = FALSE,
+             require_rooted = TRUE)
 
   if (inherits(phy, "matrix")) {
     b2_stat <- calc_b2_ltable_cpp(phy)

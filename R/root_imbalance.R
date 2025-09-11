@@ -1,6 +1,6 @@
 #' Root imbalance
 #' @description Measures the distribution of tips over the two crown lineages,
-#' e.g. n1 / (n1 + n2), where n1 is the number of tips connected to crown
+#' e.g. \eqn{n1 / (n1 + n2)}, where n1 is the number of tips connected to crown
 #' lineage 1 and n2 is the number of tips connected to crown lineage 2. We
 #' always take n1 > n2, thus root imbalance is always in [0.5, 1].
 #' @param phy phylo object or ltable
@@ -12,7 +12,8 @@ root_imbalance <- function(phy) {
 
   check_tree(phy,
              require_binary = TRUE,
-             require_ultrametric = FALSE)
+             require_ultrametric = FALSE,
+             require_rooted = TRUE)
 
   if (inherits(phy, "matrix")) {
     return(calc_root_imbalance_ltable_cpp(phy))
