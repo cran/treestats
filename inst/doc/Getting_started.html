@@ -12,7 +12,7 @@
 
 <meta name="author" content="Thijs Janzen" />
 
-<meta name="date" content="2025-09-11" />
+<meta name="date" content="2025-11-11" />
 
 <title>Getting started</title>
 
@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -62,7 +63,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -340,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Getting started</h1>
 <h4 class="author">Thijs Janzen</h4>
-<h4 class="date">2025-09-11</h4>
+<h4 class="date">2025-11-11</h4>
 
 
 
@@ -384,12 +385,12 @@ the Colless statistic (and we generate a dummy tree):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>phy <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">rphylo</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">birth =</span> <span class="dv">1</span>, <span class="at">death =</span> <span class="fl">0.1</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>treestats<span class="sc">::</span><span class="fu">colless</span>(phy)</span></code></pre></div>
-<pre><code>## [1] 350</code></pre>
+<pre><code>## [1] 322</code></pre>
 <p>Looking at the documentation of the colless statistic
 (<code>?colless</code>), we find that the function also includes options
 to normalize for size: either ‘pda’ or ‘yule’:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>treestats<span class="sc">::</span><span class="fu">colless</span>(phy, <span class="at">normalization =</span> <span class="st">&quot;yule&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] 0.01076133</code></pre>
+<pre><code>## [1] -0.2692387</code></pre>
 <div id="multiple-statistics" class="section level2">
 <h2>Multiple statistics</h2>
 <p>The treestats package supports calculating many statistics in one go.
@@ -401,25 +402,25 @@ statistics:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>balance_stats <span class="ot">&lt;-</span> <span class="fu">calc_topology_stats</span>(phy)</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">unlist</span>(balance_stats)</span></code></pre></div>
 <pre><code>##      area_per_pair average_leaf_depth         avg_ladder     avg_vert_depth 
-##       1.247394e+01       8.320000e+00       2.555556e+00       7.366834e+00 
+##       1.339717e+01       8.120000e+00       2.857143e+00       7.165829e+00 
 ##                 b1                 b2               beta               blum 
-##       5.230871e+01       5.225464e+00       3.544873e-01       1.126510e+02 
+##       5.195593e+01       5.578979e+00      -1.607715e-01       1.163285e+02 
 ##           cherries            colless       colless_corr       colless_quad 
-##       3.100000e+01       3.500000e+02       7.215007e-02       1.155400e+04 
+##       3.300000e+01       3.220000e+02       6.637807e-02       4.984000e+03 
 ##           diameter    double_cherries   eigen_centrality         ew_colless 
-##       2.200000e+01       2.000000e+00       3.039653e-01       4.924530e-01 
+##       2.500000e+01       4.000000e+00       2.700495e-01       4.671319e-01 
 ##         four_prong             i_stat          il_number    imbalance_steps 
-##       7.000000e+00       4.986949e-01       3.800000e+01       8.500000e+01 
+##       6.000000e+00       5.217211e-01       3.400000e+01       8.500000e+01 
 ##              j_one    max_betweenness      max_closeness      max_del_width 
-##       7.985404e-01       1.289300e+04                 NA       1.000000e+01 
+##       8.182089e-01       1.297700e+04                 NA       8.000000e+00 
 ##          max_depth         max_ladder          max_width         mw_over_md 
-##       1.400000e+01       4.000000e+00       3.200000e+01       2.285714e+00 
+##       1.400000e+01       4.000000e+00       2.800000e+01       2.000000e+00 
 ##         pitchforks             rogers     root_imbalance           rquartet 
-##       2.000000e+01       6.300000e+01       8.200000e-01       2.838522e+06 
+##       1.400000e+01       6.100000e+01       7.000000e-01       4.304130e+06 
 ##             sackin             stairs            stairs2     symmetry_nodes 
-##       8.320000e+02       6.363636e-01       6.427387e-01       6.400000e+01 
+##       8.120000e+02       6.161616e-01       6.368137e-01       6.100000e+01 
 ##           tot_coph  tot_internal_path    tot_path_length          var_depth 
-##       1.031100e+04       6.340000e+02       1.466000e+03       5.197600e+00</code></pre>
+##       7.036000e+03       6.140000e+02       1.426000e+03       5.465600e+00</code></pre>
 </div>
 </div>
 
