@@ -6,7 +6,6 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(fig.width = 6)
 knitr::opts_chunk$set(fig.height = 6)
 library(treestats)
-library(Matrix)
 
 ## ----list---------------------------------------------------------------------
 list_statistics()

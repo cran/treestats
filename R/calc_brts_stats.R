@@ -38,6 +38,7 @@ calc_brts_stats <- function(phylo) {
                                            treestats::var_branch_length_int)
   stats$var_branch_length_ext  <- try_stat(phylo,
                                            treestats::var_branch_length_ext)
+
   stats <- unlist(stats)
   stats <- stats[order(names(stats))]
 

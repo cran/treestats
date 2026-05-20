@@ -62,6 +62,11 @@
 #'   \item number of imbalancing steps
 #'   \item j_one statistic
 #'   \item treeness statistic
+#'   \item branch weighted colless statistic
+#'   \item minimum eigenvalue of the Laplacian matrix
+#'   \item maximum eigenvalue of the Laplacian matrix
+#'   \item minimum eigenvalue of the adjacency matrix
+#'   \item maximum eigenvalue of the adjacency matrix
 #' }
 #'
 #' For the Laplacian spectrum properties, four properties of the eigenvalue
@@ -139,29 +144,34 @@ calc_all_stats <- function(phylo, normalize = FALSE) {
                       function(x) {
                         return(treestats::minmax_laplace(x, TRUE))
                        })
+  stats$max_laplace <- NA
+  stats$min_laplace <- NA
 
+  obj_not_na <- !is.null(temp_stats) &&
+    !(length(temp_stats) == 1 && is.na(temp_stats))
 
-  if (length(temp_stats) >= 2) {
-    stats$min_laplace <- temp_stats$min
-    stats$max_laplace <- temp_stats$max
-  } else {
-    stats$min_laplace <- NA
-    stats$max_laplace <- NA
-  }
+  max_not_na <- obj_not_na && !is.na(temp_stats$max)
+  min_not_na <- obj_not_na && !is.null(temp_stats$min)
+
+  if (max_not_na) stats$max_laplace <- temp_stats$max
+  if (min_not_na) stats$min_laplace <- temp_stats$min
 
   temp_stats <- try_stat(phylo,
                          function(x) {
                            return(treestats::minmax_adj(x, TRUE))
                          })
 
+  stats$min_adj <- NA
+  stats$max_adj <- NA
 
-  if (length(temp_stats) >= 2) {
-    stats$min_adj <- temp_stats$min
-    stats$max_adj <- temp_stats$max
-  } else {
-    stats$min_adj <- NA
-    stats$max_adj <- NA
-  }
+  obj_not_na <- !is.null(temp_stats) &&
+                !(length(temp_stats) == 1 && is.na(temp_stats))
+
+  max_not_na <- obj_not_na && !is.na(temp_stats$max)
+  min_not_na <- obj_not_na && !is.null(temp_stats$min)
+
+  if (max_not_na) stats$max_adj <- temp_stats$max
+  if (min_not_na) stats$min_adj <- temp_stats$min
 
   stats$imbalance_steps  <- try_stat(phylo, treestats::imbalance_steps,
                                      normalize)

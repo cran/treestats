@@ -1,3 +1,25 @@
+# Version 1.70.11
+- Replaced ::Rf_error with Rcpp::stop()
+- Added vignette on the effect of tree size
+- Added vignette visualizing correlations between statistics
+
+# Version 1.70.10
+- Added matrix-free calculations for eigenvalue related calculations, for the
+eigenvector and the adjacency matrix related summary statistics. These are no
+longer restricted by tree size (although for very large trees, calculations
+might still take considerable time, scaling is much better now).
+- Added matrix-free calculations for the min_max laplacian function
+- Note that the RSpectra related statistics are NOT matrix free possible: these
+require all distances between all tips and all nodes, which can not be done
+matrix-free (so these are restricted to trees < ~20k nodes, and relatively
+slow).
+- Removed the large trees function as now we can calculate most statistics
+anyway for these large trees.
+
+# Version 1.70.9
+- Added function to calculate statistics for large trees, which skips several
+distance matrix based statistics that can cause extreme memory usage
+
 # Version 1.70.8
 - Removed all references and vignettes making use of the package abcrf, as this is longer available on CRAN.
 - Improved compliance to noSuggests CRAN policy.
@@ -26,25 +48,25 @@ Updated references.
 
 # Version 1.70.4
 
-Removed C++20 dependency
+- Removed C++20 dependency
 
 # Version 1.70.3
 
-Version numbering has improved to include the number of statistics available.
+- Version numbering has improved to include the number of statistics available.
 
 # Version 1.1.3
 
--   Reduced dependencies, Matrix and RSpectra are no longer required (but availability will improve speed!)
--   calc_all_stats, calc_topology_stats and calc_brts_stats no longer return a named list, but return a named vector, for ease of rapid calculation across many trees
+- Reduced dependencies, Matrix and RSpectra are no longer required (but availability will improve speed!)
+- calc_all_stats, calc_topology_stats and calc_brts_stats no longer return a named list, but return a named vector, for ease of rapid calculation across many trees
 
 # Version 1.1.2
 
--   Removed dependencies to nodeSub by integrating functions to generate fully balanced and unbalanced into treestats.
--   Renamed 'calc_balance_stats' to 'calc_topology_stats', and included only statistics that take the topology (without the branch lengths) into account.
+- Removed dependencies to nodeSub by integrating functions to generate fully balanced and unbalanced into treestats.
+- Renamed 'calc_balance_stats' to 'calc_topology_stats', and included only statistics that take the topology (without the branch lengths) into account.
 
 # Version 1.1.1
 
-Added the following statistics:
+- Added the following statistics:
 
 -   minimum(\>0) eigenvalue of the Adjacency matrix
 
@@ -80,22 +102,22 @@ Add several new statistics:
 
 # Version 1.0.7
 
--   Added checks to each statistic verifying the statistic requires an ultrametric or binary tree - this should avoid some rare instances where memory access violations would pop up when providing a non-binary tree to a statistic assuming a binary input phylogeny. Many thanks to Fien Strijthaegen for pointing this out.
+- Added checks to each statistic verifying the statistic requires an ultrametric or binary tree - this should avoid some rare instances where memory access violations would pop up when providing a non-binary tree to a statistic assuming a binary input phylogeny. Many thanks to Fien Strijthaegen for pointing this out.
 
 # Version 1.0.6
 
--   Added treeness statistic
+- Added treeness statistic
 
 # Version 1.0.5
 
--   Squashed a bug in imbalance_steps that would incorrectly calculate for smaller trees
--   Added bioRxiv link to DESCRIPTION
--   Added CITATION file
+- Squashed a bug in imbalance_steps that would incorrectly calculate for smaller trees
+- Added bioRxiv link to DESCRIPTION
+- Added CITATION file
 
 # Version 1.0.4
 
--   Corrected wording of variation in branch length statistics to correctly reflect variance, instead of variation
+- Corrected wording of variation in branch length statistics to correctly reflect variance, instead of variation
 
 # Version 1.0.3
 
-First release to CRAN
+- First release to CRAN
