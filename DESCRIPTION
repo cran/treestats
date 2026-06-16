@@ -1,7 +1,7 @@
 Package: treestats
 Type: Package
 Title: Phylogenetic Tree Statistics
-Version: 1.70.11
+Version: 1.71.12
 Authors@R: c(person(given = "Thijs",
         family = "Janzen",
         email = "thijsjanzen@gmail.com",
@@ -20,7 +20,6 @@ Description: Collection of phylogenetic tree statistics,
              found in Janzen (2024) <doi:10.1016/j.ympev.2024.108168>.
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.3.3
 Depends: Rcpp
 LinkingTo: Rcpp, RcppArmadillo, nloptr
 Imports: ape, nloptr, treebalance, DDD, RSpectra
@@ -29,13 +28,13 @@ Suggests: phytools, phyloTop, testthat, geiger, nLTT, castor, adephylo,
         knitr, igraph, Matrix, pheatmap, ggdendro, dendextend, Matrix,
         TreeSim, nlme
 BugReports: https://github.com/thijsjanzen/treestats/issues
-URL: https://github.com/thijsjanzen/treestats,
-        https://thijsjanzen.github.io/treestats/
+URL: https://thijsjanzen.github.io/treestats/
 VignetteBuilder: knitr
 SystemRequirements: C++17
+Config/roxygen2/version: 8.0.0
 NeedsCompilation: yes
-Packaged: 2026-05-20 13:34:46 UTC; thijsjanzen
+Packaged: 2026-06-16 09:55:09 UTC; thijsjanzen
 Author: Thijs Janzen [cre, aut] (ORCID:
     <https://orcid.org/0000-0002-4162-1140>)
 Repository: CRAN
-Date/Publication: 2026-05-20 14:20:02 UTC
+Date/Publication: 2026-06-16 11:50:02 UTC

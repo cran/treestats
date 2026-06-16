@@ -2,8 +2,6 @@ context("all_statistics")
 
 test_that("usage", {
   testthat::skip_on_cran() # these tests take very long
-  testthat::skip_on_ci()
-  testthat::skip_on_covr()
 
   set.seed(42)
   focal_tree <- ape::rphylo(n = 10, birth = 1, death = 0)
@@ -11,7 +9,7 @@ test_that("usage", {
   testthat::expect_invisible(
    all_stats <- treestats::calc_all_stats(focal_tree)
   )
-  testthat::expect_equal(length(all_stats), 70)
+  testthat::expect_equal(length(all_stats), 71)
 
   focal_tree <- ape::rphylo(n = 23175, birth = 1, death = 0)
   testthat::expect_warning(

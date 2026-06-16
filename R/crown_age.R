@@ -17,8 +17,6 @@ tree_height <- function(phy) {
              require_rooted = FALSE)
 
   if (inherits(phy, "matrix")) {
-    # ltables by definition have the crown age in the first line, a root branch
-    # emerges when the second species does not share the same birth age.
     return(phy[1, 1])
   }
 
