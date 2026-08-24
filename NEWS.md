@@ -1,3 +1,18 @@
+# Version 1.71.13
+- Polytomies were not handled correctly, and code for the following statistics
+was adjusted accordingly: ILnumber, entropy_j, tot_internal_path, tot_path,
+max_width, max_del_width, max_depth, mw_over_md, phylogenetic_diversity, 
+var_pair_dist and var_leaf_depth. 
+Furthermore, several statistics previously not available for non-binary trees 
+- Several statistics previously not available for non-binary trees 
+were expanded to be applicable to non-binary trees as well (use at your own 
+discretion, as normalization constants might not be applicable): b1, b2, 
+cherries, pitchforks, double_cherries, sackin index, total cophenetic index, 
+area_per_pair and average_leaf_depth.
+max_closeness, area_per_pair and average_leaf_depth.
+- For an overview of which statistics can be used with non-binary trees, please
+consult the table in the README file, which has been updated accordingly.
+
 # Version 1.71.12
 - Updated calculation of how to crown age was calculated to avoid edge-case
 miscalculations, and to speed up calculation as well.
@@ -16,7 +31,7 @@ eigenvector and the adjacency matrix related summary statistics. These are no
 longer restricted by tree size (although for very large trees, calculations
 might still take considerable time, scaling is much better now).
 - Added matrix-free calculations for the min_max laplacian function
-- Note that the RSpectra related statistics are NOT matrix free possible: these
+- Note that the RPANDA related statistics are NOT matrix free possible: these
 require all distances between all tips and all nodes, which can not be done
 matrix-free (so these are restricted to trees < ~20k nodes, and relatively
 slow).
@@ -26,13 +41,15 @@ slow).
 distance matrix based statistics that can cause extreme memory usage
 
 # Version 1.70.8
-- Removed all references and vignettes making use of the package abcrf, as this is longer available on CRAN.
+- Removed all references and vignettes making use of the package abcrf, 
+as this is longer available on CRAN.
 - Improved compliance to noSuggests CRAN policy.
 
 # Version 1.70.7
 - Fixed numerical issue in calculating mean pair distance for very large trees
 - Now use armadillo to calculate Eigen values.
-- Added the function 'sshape', which was previously called the blum statistic (the blum function remains available as well). Thanks Sophie Kersting for 
+- Added the function 'sshape', which was previously called the blum statistic 
+(the blum function remains available as well). Thanks Sophie Kersting for 
 pointing this out!
 - Polished the manual.
 
@@ -61,53 +78,49 @@ Updated references.
 
 # Version 1.1.3
 
-- Reduced dependencies, Matrix and RSpectra are no longer required (but availability will improve speed!)
-- calc_all_stats, calc_topology_stats and calc_brts_stats no longer return a named list, but return a named vector, for ease of rapid calculation across many trees
+- Reduced dependencies, Matrix and RSpectra are no longer required 
+(but availability will improve speed!)
+- calc_all_stats, calc_topology_stats and calc_brts_stats no longer return a 
+named list, but return a named vector, for ease of rapid calculation across 
+many trees
 
 # Version 1.1.2
 
-- Removed dependencies to nodeSub by integrating functions to generate fully balanced and unbalanced into treestats.
-- Renamed 'calc_balance_stats' to 'calc_topology_stats', and included only statistics that take the topology (without the branch lengths) into account.
+- Removed dependencies to nodeSub by integrating functions to generate fully 
+balanced and unbalanced into treestats.
+- Renamed 'calc_balance_stats' to 'calc_topology_stats', and included only 
+statistics that take the topology (without the branch lengths) into account.
 
 # Version 1.1.1
 
 - Added the following statistics:
-
 -   minimum(\>0) eigenvalue of the Adjacency matrix
-
 -   maximum eigenvalue of the Adjacency matrix
-
 -   minimum(\>0) eigenvalue of the Laplacian matrix
-
 -   maximum eigenvalue of the Laplacian matrix
-
 -   double cherries
-
 -   root imbalance
-
 -   four prong
-
-Renamed eigenvector to eigen_centrality (in line with the analogous function in igraph)
+- Renamed eigenvector to eigen_centrality (in line with the analogous function 
+in igraph)
 
 # Version 1.1.0
 
-Add several new statistics:
-
+- Add several new statistics:
 -   Colless-corrected
-
 -   Colless-Quadratic
-
 -   Total path index
-
 -   Total internal path index
-
 -   Average vertex depth
-
 -   Max Width over Max Depth
 
 # Version 1.0.7
 
-- Added checks to each statistic verifying the statistic requires an ultrametric or binary tree - this should avoid some rare instances where memory access violations would pop up when providing a non-binary tree to a statistic assuming a binary input phylogeny. Many thanks to Fien Strijthaegen for pointing this out.
+- Added checks to each statistic verifying the statistic requires an ultrametric 
+or binary tree - this should avoid some rare instances where memory access 
+violations would pop up when providing a non-binary tree to a statistic assuming 
+a binary input phylogeny. Many thanks to Fien Strijthaegen for pointing this 
+out.
 
 # Version 1.0.6
 
@@ -115,13 +128,15 @@ Add several new statistics:
 
 # Version 1.0.5
 
-- Squashed a bug in imbalance_steps that would incorrectly calculate for smaller trees
+- Squashed a bug in imbalance_steps that would incorrectly calculate for 
+smaller trees
 - Added bioRxiv link to DESCRIPTION
 - Added CITATION file
 
 # Version 1.0.4
 
-- Corrected wording of variation in branch length statistics to correctly reflect variance, instead of variation
+- Corrected wording of variation in branch length statistics to correctly 
+reflect variance, instead of variation
 
 # Version 1.0.3
 

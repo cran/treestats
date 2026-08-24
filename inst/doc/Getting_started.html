@@ -12,7 +12,7 @@
 
 <meta name="author" content="Thijs Janzen" />
 
-<meta name="date" content="2026-06-16" />
+<meta name="date" content="2026-08-24" />
 
 <title>Getting started</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Getting started</h1>
 <h4 class="author">Thijs Janzen</h4>
-<h4 class="date">2026-06-16</h4>
+<h4 class="date">2026-08-24</h4>
 
 
 
@@ -353,23 +353,23 @@ supported summary statistics use:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">list_statistics</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;area_per_pair&quot;          &quot;average_leaf_depth&quot;     &quot;avg_ladder&quot;            
 ##  [4] &quot;avg_vert_depth&quot;         &quot;b1&quot;                     &quot;b2&quot;                    
-##  [7] &quot;beta&quot;                   &quot;blum&quot;                   &quot;cherries&quot;              
-## [10] &quot;colless&quot;                &quot;colless_corr&quot;           &quot;colless_quad&quot;          
-## [13] &quot;crown_age&quot;              &quot;diameter&quot;               &quot;double_cherries&quot;       
-## [16] &quot;eigen_centrality&quot;       &quot;eigen_centralityW&quot;      &quot;ew_colless&quot;            
-## [19] &quot;four_prong&quot;             &quot;gamma&quot;                  &quot;i_stat&quot;                
-## [22] &quot;il_number&quot;              &quot;imbalance_steps&quot;        &quot;j_one&quot;                 
-## [25] &quot;j_stat&quot;                 &quot;laplace_spectrum_a&quot;     &quot;laplace_spectrum_e&quot;    
-## [28] &quot;laplace_spectrum_g&quot;     &quot;laplace_spectrum_p&quot;     &quot;max_adj&quot;               
-## [31] &quot;max_betweenness&quot;        &quot;max_closeness&quot;          &quot;max_closenessW&quot;        
-## [34] &quot;max_del_width&quot;          &quot;max_depth&quot;              &quot;max_ladder&quot;            
-## [37] &quot;max_laplace&quot;            &quot;max_width&quot;              &quot;mean_branch_length&quot;    
-## [40] &quot;mean_branch_length_ext&quot; &quot;mean_branch_length_int&quot; &quot;mean_inv_branch_dist&quot;  
-## [43] &quot;min_adj&quot;                &quot;min_laplace&quot;            &quot;mntd&quot;                  
-## [46] &quot;mpd&quot;                    &quot;mw_over_md&quot;             &quot;nltt_base&quot;             
-## [49] &quot;number_of_lineages&quot;     &quot;phylogenetic_div&quot;       &quot;pigot_rho&quot;             
-## [52] &quot;pitchforks&quot;             &quot;psv&quot;                    &quot;rogers&quot;                
-## [55] &quot;root_imbalance&quot;         &quot;rquartet&quot;               &quot;sackin&quot;                
+##  [7] &quot;beta&quot;                   &quot;cherries&quot;               &quot;colless&quot;               
+## [10] &quot;colless_corr&quot;           &quot;colless_quad&quot;           &quot;crown_age&quot;             
+## [13] &quot;diameter&quot;               &quot;double_cherries&quot;        &quot;eigen_centrality&quot;      
+## [16] &quot;eigen_centralityW&quot;      &quot;ew_colless&quot;             &quot;four_prong&quot;            
+## [19] &quot;gamma&quot;                  &quot;i_stat&quot;                 &quot;il_number&quot;             
+## [22] &quot;imbalance_steps&quot;        &quot;j_one&quot;                  &quot;j_stat&quot;                
+## [25] &quot;laplace_spectrum_a&quot;     &quot;laplace_spectrum_e&quot;     &quot;laplace_spectrum_g&quot;    
+## [28] &quot;laplace_spectrum_p&quot;     &quot;max_adj&quot;                &quot;max_betweenness&quot;       
+## [31] &quot;max_closeness&quot;          &quot;max_closenessW&quot;         &quot;max_del_width&quot;         
+## [34] &quot;max_depth&quot;              &quot;max_ladder&quot;             &quot;max_laplace&quot;           
+## [37] &quot;max_width&quot;              &quot;mean_branch_length&quot;     &quot;mean_branch_length_ext&quot;
+## [40] &quot;mean_branch_length_int&quot; &quot;mean_inv_branch_dist&quot;   &quot;min_adj&quot;               
+## [43] &quot;min_laplace&quot;            &quot;mntd&quot;                   &quot;mpd&quot;                   
+## [46] &quot;mw_over_md&quot;             &quot;nltt_base&quot;              &quot;number_of_lineages&quot;    
+## [49] &quot;phylogenetic_div&quot;       &quot;pigot_rho&quot;              &quot;pitchforks&quot;            
+## [52] &quot;psv&quot;                    &quot;rogers&quot;                 &quot;root_imbalance&quot;        
+## [55] &quot;rquartet&quot;               &quot;sackin&quot;                 &quot;sshape&quot;                
 ## [58] &quot;stairs&quot;                 &quot;stairs2&quot;                &quot;symmetry_nodes&quot;        
 ## [61] &quot;tot_coph&quot;               &quot;tot_internal_path&quot;      &quot;tot_path&quot;              
 ## [64] &quot;tree_height&quot;            &quot;treeness&quot;               &quot;var_branch_length&quot;     
@@ -385,12 +385,12 @@ the Colless statistic (and we generate a dummy tree):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>phy <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">rphylo</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">birth =</span> <span class="dv">1</span>, <span class="at">death =</span> <span class="fl">0.1</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>treestats<span class="sc">::</span><span class="fu">colless</span>(phy)</span></code></pre></div>
-<pre><code>## [1] 324</code></pre>
+<pre><code>## [1] 387</code></pre>
 <p>Looking at the documentation of the colless statistic
 (<code>?colless</code>), we find that the function also includes options
 to normalize for size: either ‘pda’ or ‘yule’:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>treestats<span class="sc">::</span><span class="fu">colless</span>(phy, <span class="at">normalization =</span> <span class="st">&quot;yule&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] -0.2492387</code></pre>
+<pre><code>## [1] 0.3807613</code></pre>
 <div id="multiple-statistics" class="section level2">
 <h2>Multiple statistics</h2>
 <p>The treestats package supports calculating many statistics in one go.
@@ -402,25 +402,25 @@ statistics:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>balance_stats <span class="ot">&lt;-</span> <span class="fu">calc_topology_stats</span>(phy)</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">unlist</span>(balance_stats)</span></code></pre></div>
 <pre><code>##      area_per_pair average_leaf_depth         avg_ladder     avg_vert_depth 
-##       1.382141e+01       8.420000e+00       2.444444e+00       7.467337e+00 
-##                 b1                 b2               beta               blum 
-##       5.220239e+01       5.199585e+00      -3.631946e-01       1.177402e+02 
-##           cherries            colless       colless_corr       colless_quad 
-##       3.300000e+01       3.240000e+02       6.679035e-02       5.884000e+03 
-##           diameter    double_cherries   eigen_centrality         ew_colless 
-##       2.700000e+01       4.000000e+00       2.445037e-01       4.667148e-01 
-##         four_prong             i_stat          il_number    imbalance_steps 
-##       6.000000e+00       5.185230e-01       3.400000e+01       8.500000e+01 
-##              j_one    max_betweenness      max_closeness      max_del_width 
-##       7.890566e-01       1.174100e+04                 NA       8.000000e+00 
-##          max_depth         max_ladder          max_width         mw_over_md 
-##       1.400000e+01       3.000000e+00       3.200000e+01       2.285714e+00 
-##         pitchforks             rogers     root_imbalance           rquartet 
-##       1.400000e+01       6.000000e+01       5.200000e-01       4.926423e+06 
-##             sackin             stairs            stairs2     symmetry_nodes 
-##       8.420000e+02       6.060606e-01       6.448332e-01       6.200000e+01 
+##       1.352626e+01       8.550000e+00       2.142857e+00       7.597990e+00 
+##                 b1                 b2               beta           cherries 
+##       5.395791e+01       5.420227e+00      -3.815967e-01       3.500000e+01 
+##            colless       colless_corr       colless_quad           diameter 
+##       3.870000e+02       7.977737e-02       8.645000e+03       2.400000e+01 
+##    double_cherries   eigen_centrality         ew_colless         four_prong 
+##       6.000000e+00       2.918844e-01       4.316212e-01       4.000000e+00 
+##             i_stat          il_number    imbalance_steps              j_one 
+##       5.067291e-01       3.000000e+01       8.400000e+01       7.770592e-01 
+##    max_betweenness      max_closeness      max_del_width          max_depth 
+##       1.152900e+04                 NA       8.000000e+00       1.500000e+01 
+##         max_ladder          max_width         mw_over_md         pitchforks 
+##       3.000000e+00       2.800000e+01       1.866667e+00       1.300000e+01 
+##             rogers     root_imbalance           rquartet             sackin 
+##       5.500000e+01       7.600000e-01       3.526491e+06       8.550000e+02 
+##             sshape             stairs            stairs2     symmetry_nodes 
+##       1.695977e+02       5.555556e-01       6.561428e-01       5.500000e+01 
 ##           tot_coph  tot_internal_path    tot_path_length          var_depth 
-##       7.471000e+03       6.440000e+02       1.486000e+03       6.143600e+00</code></pre>
+##       8.845000e+03       6.570000e+02       1.512000e+03       7.887500e+00</code></pre>
 </div>
 </div>
 
